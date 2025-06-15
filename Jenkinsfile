@@ -1,7 +1,8 @@
+
 pipeline {
     agent {
         docker {
-            image 'python 3.10'
+            image 'python:3.10'
         }
     }
 
@@ -23,7 +24,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 sh '''
-                    .$VENV/bin/activate
+                    . $VENV/bin/activate
                     pytest test_app.py
                 '''
             }
